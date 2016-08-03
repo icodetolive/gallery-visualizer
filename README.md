@@ -1,6 +1,6 @@
 # Gallery Visualizer
 
-This repository implements Flickr Web Service/API to display images from a certain gallery. 
+This repository implements Flickr Web Service/API to download and display images from a certain gallery. The Gallery used in this project is: Forced Perspectives with gallery_id: 66911286-72157647263150569
 
 ## Summary
 
