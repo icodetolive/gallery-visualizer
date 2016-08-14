@@ -14,6 +14,7 @@
 		5B03D6BF1D4F050600E77996 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B03D6BD1D4F050600E77996 /* LaunchScreen.storyboard */; };
 		5B03D6CA1D4F050700E77996 /* Gallery_VisualizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B03D6C91D4F050700E77996 /* Gallery_VisualizerTests.swift */; };
 		5B03D6D51D4F050700E77996 /* Gallery_VisualizerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B03D6D41D4F050700E77996 /* Gallery_VisualizerUITests.swift */; };
+		5B1CF9F21D601378002475AE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1CF9F11D601378002475AE /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		5B03D6D01D4F050700E77996 /* Gallery VisualizerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Gallery VisualizerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B03D6D41D4F050700E77996 /* Gallery_VisualizerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gallery_VisualizerUITests.swift; sourceTree = "<group>"; };
 		5B03D6D61D4F050700E77996 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B1CF9F11D601378002475AE /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				5B03D6B41D4F050600E77996 /* AppDelegate.swift */,
 				5B03D6B61D4F050600E77996 /* FlickrWebServiceViewController.swift */,
 				5B03D6C01D4F050600E77996 /* Info.plist */,
+				5B1CF9F11D601378002475AE /* Constants.swift */,
 			);
 			path = "Gallery Visualizer";
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 			files = (
 				5B03D6B71D4F050600E77996 /* FlickrWebServiceViewController.swift in Sources */,
 				5B03D6B51D4F050600E77996 /* AppDelegate.swift in Sources */,
+				5B1CF9F21D601378002475AE /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
