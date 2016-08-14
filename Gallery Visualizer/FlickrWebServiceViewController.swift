@@ -8,6 +8,8 @@
 
 import UIKit
 
+//https://api.flickr.com/services/rest/?method=flickr.galleries.getPhotos&api_key=f1f39280fd9ef2b4328e2381011da21d&gallery_id=5704-72157622566655097&extras=url_m&format=json&nojsoncallback=1
+
 class FlickrWebServiceViewController: UIViewController {
     
     @IBOutlet weak var photoImageView: UIImageView!
@@ -22,6 +24,7 @@ class FlickrWebServiceViewController: UIViewController {
     
     @IBAction func grabNewImage() {
         setUIEnabled(false)
+        getImageFromFlickr()
     }
     
     private func setUIEnabled(enabled: Bool) {
@@ -35,6 +38,12 @@ class FlickrWebServiceViewController: UIViewController {
         else {
             grabImageButton.alpha = 0.5
         }
+    }
+    
+    private func getImageFromFlickr() {
+        let url = NSURL(string: "\(Constants.Flickr.APIBaseURL)?\(Constants.FlickrParameterKeys.Method)=\(Constants.FlickrParameterValues.GalleryPhotosMethod)&\(Constants.FlickrParameterKeys.APIKey)=\(Constants.FlickrParameterValues.APIKey)&\(Constants.FlickrParameterKeys.GalleryID)=\(Constants.FlickrParameterValues.GalleryID)&\(Constants.FlickrParameterKeys.Extras)=\(Constants.FlickrParameterValues.MediumPhotoURL)&\(Constants.FlickrParameterKeys.Format)=\(Constants.FlickrParameterValues.JsonFormat)&\(Constants.FlickrParameterKeys.NoJsonCallback)=\(Constants.FlickrParameterValues.DisableJsonCallback)")!
+        
+        print(url)
     }
 
 }
