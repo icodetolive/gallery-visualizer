@@ -41,9 +41,39 @@ class FlickrWebServiceViewController: UIViewController {
     }
     
     private func getImageFromFlickr() {
-        let url = NSURL(string: "\(Constants.Flickr.APIBaseURL)?\(Constants.FlickrParameterKeys.Method)=\(Constants.FlickrParameterValues.GalleryPhotosMethod)&\(Constants.FlickrParameterKeys.APIKey)=\(Constants.FlickrParameterValues.APIKey)&\(Constants.FlickrParameterKeys.GalleryID)=\(Constants.FlickrParameterValues.GalleryID)&\(Constants.FlickrParameterKeys.Extras)=\(Constants.FlickrParameterValues.MediumPhotoURL)&\(Constants.FlickrParameterKeys.Format)=\(Constants.FlickrParameterValues.JsonFormat)&\(Constants.FlickrParameterKeys.NoJsonCallback)=\(Constants.FlickrParameterValues.DisableJsonCallback)")!
         
-        print(url)
+        let methodParameters = [
+            Constants.FlickrParameterKeys.Method: Constants.FlickrParameterValues.GalleryPhotosMethod,
+            Constants.FlickrParameterKeys.APIKey: Constants.FlickrParameterValues.APIKey,
+            Constants.FlickrParameterKeys.GalleryID: Constants.FlickrParameterValues.GalleryID,
+            Constants.FlickrParameterKeys.Extras: Constants.FlickrParameterValues.MediumPhotoURL,
+            Constants.FlickrParameterKeys.Format: Constants.FlickrParameterValues.JsonFormat,
+            Constants.FlickrParameterKeys.NoJsonCallback: Constants.FlickrParameterValues.DisableJsonCallback
+        ]
+        
+        let urlString = Constants.Flickr.APIBaseURL + escapedParameters(methodParameters)
+        
+        print(urlString)
+        
+    }
+    
+    private func escapedParameters(parameters: [String: AnyObject]) -> String {
+        if parameters.isEmpty {
+            return ""
+        }
+        else {
+            var keyValuePairs = [String]()
+            for (key, value) in parameters {
+                
+                var stringValue = "\(value)"
+                
+                let escapedValue = stringValue.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())
+                keyValuePairs.append(key + "=" + "\(escapedValue!)")
+            }
+            
+            
+            return "?\(keyValuePairs.joinWithSeparator("&"))"
+        }
     }
 
 }
