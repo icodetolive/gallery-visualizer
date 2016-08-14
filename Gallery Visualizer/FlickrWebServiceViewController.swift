@@ -21,7 +21,20 @@ class FlickrWebServiceViewController: UIViewController {
 
     
     @IBAction func grabNewImage() {
+        setUIEnabled(false)
+    }
+    
+    private func setUIEnabled(enabled: Bool) {
+        photoTitleLabel.enabled = enabled
+        grabImageButton.enabled = enabled
         
+        if enabled {
+            grabImageButton.alpha = 1.0
+        }
+        //the button will be disabled until an image is downloaded 
+        else {
+            grabImageButton.alpha = 0.5
+        }
     }
 
 }
