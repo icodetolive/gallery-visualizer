@@ -38,7 +38,7 @@
 		5B03D6B41D4F050600E77996 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B03D6B61D4F050600E77996 /* FlickrWebServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrWebServiceViewController.swift; sourceTree = "<group>"; };
 		5B03D6B91D4F050600E77996 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		5B03D6BB1D4F050600E77996 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5B03D6BB1D4F050600E77996 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "Gallery Visualizer/Assets.xcassets"; sourceTree = "<group>"; };
 		5B03D6BE1D4F050600E77996 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B03D6C01D4F050600E77996 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B03D6C51D4F050700E77996 /* Gallery VisualizerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Gallery VisualizerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +77,7 @@
 		5B03D6A81D4F050600E77996 = {
 			isa = PBXGroup;
 			children = (
+				5B1CF9F01D5B071C002475AE /* Assets */,
 				5B03D6B31D4F050600E77996 /* Gallery Visualizer */,
 				5B03D6C81D4F050700E77996 /* Gallery VisualizerTests */,
 				5B03D6D31D4F050700E77996 /* Gallery VisualizerUITests */,
@@ -99,9 +100,6 @@
 			children = (
 				5B03D6B41D4F050600E77996 /* AppDelegate.swift */,
 				5B03D6B61D4F050600E77996 /* FlickrWebServiceViewController.swift */,
-				5B03D6B81D4F050600E77996 /* Main.storyboard */,
-				5B03D6BB1D4F050600E77996 /* Assets.xcassets */,
-				5B03D6BD1D4F050600E77996 /* LaunchScreen.storyboard */,
 				5B03D6C01D4F050600E77996 /* Info.plist */,
 			);
 			path = "Gallery Visualizer";
@@ -123,6 +121,16 @@
 				5B03D6D61D4F050700E77996 /* Info.plist */,
 			);
 			path = "Gallery VisualizerUITests";
+			sourceTree = "<group>";
+		};
+		5B1CF9F01D5B071C002475AE /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				5B03D6BD1D4F050600E77996 /* LaunchScreen.storyboard */,
+				5B03D6BB1D4F050600E77996 /* Assets.xcassets */,
+				5B03D6B81D4F050600E77996 /* Main.storyboard */,
+			);
+			name = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,6 +310,7 @@
 				5B03D6B91D4F050600E77996 /* Base */,
 			);
 			name = Main.storyboard;
+			path = "Gallery Visualizer";
 			sourceTree = "<group>";
 		};
 		5B03D6BD1D4F050600E77996 /* LaunchScreen.storyboard */ = {
@@ -310,6 +319,7 @@
 				5B03D6BE1D4F050600E77996 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = "Gallery Visualizer";
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -487,6 +497,7 @@
 				5B03D6DB1D4F050700E77996 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5B03D6DC1D4F050700E77996 /* Build configuration list for PBXNativeTarget "Gallery VisualizerTests" */ = {
 			isa = XCConfigurationList;
@@ -495,6 +506,7 @@
 				5B03D6DE1D4F050700E77996 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5B03D6DF1D4F050700E77996 /* Build configuration list for PBXNativeTarget "Gallery VisualizerUITests" */ = {
 			isa = XCConfigurationList;
@@ -503,6 +515,7 @@
 				5B03D6E11D4F050700E77996 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
