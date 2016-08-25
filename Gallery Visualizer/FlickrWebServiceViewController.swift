@@ -52,8 +52,26 @@ class FlickrWebServiceViewController: UIViewController {
         ]
         
         let urlString = Constants.Flickr.APIBaseURL + escapedParameters(methodParameters)
+        let url = NSURL(string: urlString)!
+        let request = NSURLRequest(URL: url)
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) in
+            if error == nil {
+                if let data = data { //optional binding
+                    let parsedResult: AnyObject!
+                    do {
+                        parsedResult = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
+                    }
+                    catch {
+                        print("Could not parse the JSON data: \(data)")
+                        return
+                    }
+                    
+                    print(parsedResult)
+                }
+            }
+        }
         
-        print(urlString)
+        task.resume()
         
     }
     
@@ -65,12 +83,11 @@ class FlickrWebServiceViewController: UIViewController {
             var keyValuePairs = [String]()
             for (key, value) in parameters {
                 
-                var stringValue = "\(value)"
+                let stringValue = "\(value)"
                 
                 let escapedValue = stringValue.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())
                 keyValuePairs.append(key + "=" + "\(escapedValue!)")
             }
-            
             
             return "?\(keyValuePairs.joinWithSeparator("&"))"
         }
