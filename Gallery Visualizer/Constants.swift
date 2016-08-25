@@ -8,7 +8,7 @@
 
 
 
-//url :  https://api.flickr.com/services/rest/?method=flickr.galleries.getPhotos&api_key=f1f39280fd9ef2b4328e2381011da21d&gallery_id=5704-72157622566655097&extras=url_m&format=json&nojsoncallback=1
+//url :  https://api.flickr.com/services/rest/?method=flickr.galleries.getPhotos&api_key=7be204b1728a49147c0d0d68fe99bd2b&gallery_id=66911286-72157647263150569&extras=url_m&format=json&nojsoncallback=1
 struct Constants {
     
     struct Flickr {
