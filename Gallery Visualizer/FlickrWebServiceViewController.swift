@@ -67,8 +67,14 @@ class FlickrWebServiceViewController: UIViewController {
                             
                                 if let imageURLString = photoDictionary![Constants.FlickrResponseKeys.MediumPhotoURL] as? String,
                                     let photoTitle = photoDictionary![Constants.FlickrResponseKeys.Title] as? String {
-                                        print(imageURLString)
-                                        print(photoTitle)
+                                        let imageURL = NSURL(string: imageURLString)
+                                    if let imageData = NSData(contentsOfURL: imageURL!) {
+                                        performUIUpdatesOnMain() {
+                                            self.photoImageView.image = UIImage(data: imageData)
+                                            self.photoTitleLabel.text = photoTitle
+                                            self.setUIEnabled(true)
+                                        }
+                                    }
                                 }
                         }
                     }
