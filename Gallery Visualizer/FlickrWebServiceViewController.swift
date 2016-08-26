@@ -60,13 +60,15 @@ class FlickrWebServiceViewController: UIViewController {
                     let parsedResult: AnyObject!
                     do {
                         parsedResult = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
+                        if let photosDictionary = parsedResult[Constants.FlickrResponseKeys.Photos] as? [String: AnyObject],
+                            photoArray = photosDictionary[Constants.FlickrResponseKeys.Photo] as? [[String: AnyObject]] {
+                                print(photoArray[0])
+                        }
                     }
                     catch {
                         print("Could not parse the JSON data: \(data)")
                         return
                     }
-                    
-                    print(parsedResult)
                 }
             }
         }
