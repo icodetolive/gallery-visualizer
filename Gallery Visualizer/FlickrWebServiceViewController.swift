@@ -61,8 +61,15 @@ class FlickrWebServiceViewController: UIViewController {
                     do {
                         parsedResult = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
                         if let photosDictionary = parsedResult[Constants.FlickrResponseKeys.Photos] as? [String: AnyObject],
-                            photoArray = photosDictionary[Constants.FlickrResponseKeys.Photo] as? [[String: AnyObject]] {
-                                print(photoArray[0])
+                            let photoArray = photosDictionary[Constants.FlickrResponseKeys.Photo] as? [[String: AnyObject]] {
+                                let randomPhotoIndex = Int(arc4random_uniform(UInt32(photoArray.count)))
+                                let photoDictionary = photoArray[randomPhotoIndex] as? [String: AnyObject]
+                            
+                                if let imageURLString = photoDictionary![Constants.FlickrResponseKeys.MediumPhotoURL] as? String,
+                                    let photoTitle = photoDictionary![Constants.FlickrResponseKeys.Title] as? String {
+                                        print(imageURLString)
+                                        print(photoTitle)
+                                }
                         }
                     }
                     catch {
