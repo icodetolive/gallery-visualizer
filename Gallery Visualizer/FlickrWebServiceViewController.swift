@@ -77,6 +77,11 @@ class FlickrWebServiceViewController: UIViewController {
                 return
             }
             
+            guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode where statusCode >= 200 && statusCode <= 299 else {
+                displayError("The status code returned is other than 2xx!")
+                return
+            }
+            
             let parsedResult: AnyObject!
             do {
                 parsedResult = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
@@ -84,6 +89,12 @@ class FlickrWebServiceViewController: UIViewController {
             }
             catch {
                 displayError("Could not parse the JSON data: \(data)")
+                return
+            }
+            
+            //Did flickr return an error (stat != ok) ?
+            guard let stat = parsedResult[Constants.FlickrResponseKeys.Status] as? String where stat == Constants.FlickrResponseValues.OKStatus else {
+                displayError("Flickr API returned an error. See error code and message in \(parsedResult)")
                 return
             }
         
@@ -94,17 +105,21 @@ class FlickrWebServiceViewController: UIViewController {
                     return
             }
             
+            //select a random image
             let randomPhotoIndex = Int(arc4random_uniform(UInt32(photoArray.count)))
             let photoDictionary = photoArray[randomPhotoIndex] as? [String: AnyObject]
+            let photoTitle = photoDictionary![Constants.FlickrResponseKeys.Title] as? String
             
+            //does our photo has a key 'url_m'?
             guard let imageURLString = photoDictionary![Constants.FlickrResponseKeys.MediumPhotoURL] as? String else {
                 displayError("Cannot find key: \(Constants.FlickrResponseKeys.MediumPhotoURL)")
                 return
             }
             
-            let photoTitle = photoDictionary![Constants.FlickrResponseKeys.Title] as? String
+            
             let imageURL = NSURL(string: imageURLString)
             
+            //if an image exists, set the image and title
             if let imageData = NSData(contentsOfURL: imageURL!) {
                 performUIUpdatesOnMain() {
                     self.photoImageView.image = UIImage(data: imageData)
@@ -116,10 +131,12 @@ class FlickrWebServiceViewController: UIViewController {
             }
         }
     
+        //start the task
         task.resume()
     
     }
 
+    //escaping parameters in URL
     private func escapedParameters(parameters: [String: AnyObject]) -> String {
         if parameters.isEmpty {
             return ""
