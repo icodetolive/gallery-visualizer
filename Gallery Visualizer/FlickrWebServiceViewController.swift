@@ -55,6 +55,16 @@ class FlickrWebServiceViewController: UIViewController {
         let url = NSURL(string: urlString)!
         let request = NSURLRequest(URL: url)
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) in
+            
+            //if an error occurs, print it and re-enable the UI
+            func displayError(error: String) {
+                print(error)
+                print("URL at the time of error: \(url)")
+                performUIUpdatesOnMain() {
+                    self.setUIEnabled(true)
+                }
+            }
+            
             if error == nil {
                 if let data = data { //optional binding
                     let parsedResult: AnyObject!
