@@ -11,7 +11,7 @@ It demonstrates various concepts of iOS networking like:
 * Fetching and parsing the JSON result data
 * Error handling using guard statements
 
-#Courtesy:
+##Courtesy
 Udacity iOS nanodegree
 
 ## Development Environment
